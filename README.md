@@ -1,5 +1,6 @@
-# To install dependencies
+# To install dependencies and enable virtual environment
 ~~~
+source venv/bin/activate
 pip3 install -r requirements.txt
 ~~~
 
