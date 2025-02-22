@@ -5,7 +5,7 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 ~~~
 
-# Load environment variables
+# Load example and edit .env with proper values
 ~~~
 cp .env.example .env
 ~~~
