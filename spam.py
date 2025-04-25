@@ -18,10 +18,13 @@ proxies = proxies if proxy_url else None
 count = 0
 counter_lock = threading.Lock()
 
-url = os.environ.get('FORM_URL')
+url = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSd3otniyGl35qcAXKI2bLRAoUNCfaUBiqHeru5m7y4BXNipyw/formResponse"
 
 # Inspect Network tab and find find post request to get payload data
-payload = json.loads(os.environ.get('FORM_PAYLOAD'))
+# print(os.environ.get('FORM_PAYLOAD'))
+# payload = json.loads(os.environ.get('FORM_PAYLOAD').replace("\\\\", "\\"))
+payload = {"entry.1969450330":"House TAU"}
+
 headers = {
     'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:87.0) Gecko/20100101 Firefox/87.0'
 }
@@ -42,7 +45,7 @@ def submit_form():
 
 def main():
     threads = []
-    num_threads = 10  # Adjust based on available proxies
+    num_threads = 5  # Adjust based on available proxies
     
     for _ in range(num_threads):
         thread = threading.Thread(target=submit_form)
